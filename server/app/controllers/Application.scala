@@ -4,6 +4,7 @@ import javax.inject._
 
 import shared.SharedMessages
 import play.api.mvc._
+import models.NBATeams
 
 @Singleton
 class Application @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
@@ -14,6 +15,10 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
 
   def test213 = Action {
     Ok(views.html.test213(SharedMessages.itWorks))
+  }
+
+  def getNBATable = Action {
+    Ok(views.html.nbaTable(NBATeams.tableHeader, NBATeams.tableData))
   }
 
 }
