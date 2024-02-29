@@ -1,0 +1,18 @@
+@(header:Array[String], data:Array[Array[String]])
+
+@main("NBA") {
+    <table>
+        <tr>
+            @for(h <- header) {
+                <td><a href="/nba?col=@h">@h</a></td>
+            }
+        </tr>
+        @for(line <- data) {
+            <tr>
+                @for(elem <- line) {
+                    <td>@elem</td>  
+                }
+            </tr>
+        }
+    </table>
+}
