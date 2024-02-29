@@ -7,6 +7,8 @@ GET        /                             controllers.Application.index
 GET        /nba                          controllers.Application.getNBATable(col?="team")
 GET        /getinfo                      controllers.Application.getInfo
 GET        /favcol                       controllers.Application.color(name?="bob", color?="magenta")
++nocsrf
+POST       /favcolpost                   controllers.Application.postColor
 
 # Prefix must match `play.assets.urlPrefix`
 GET        /assets/*file                 controllers.Assets.at(file)

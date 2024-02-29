@@ -1,11 +1,18 @@
-@()
+@(name: String, color: String)
 
 @main("Login") {
     <h2>Login</h2>
-
+    
     <form method="get" action="favcol">
         Name: <input type="text" name="name"></input>
         Color: <input type="text" name="color"></input>
         <input type="submit"></input>
     </form>
+    <form method="post" action="favcolpost">
+        Name: <input type="text" name="name"></input>
+        Color: <input type="text" name="color"></input>
+        <input type="submit"></input>
+    </form>
+    <p>@name</p>
+    <p>@color</p>
 }
