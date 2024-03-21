@@ -8,9 +8,11 @@ GET        /nba                          controllers.Application.getNBATable(col
 GET        /getinfo                      controllers.Application.getInfo
 GET        /favcol                       controllers.Application.color(name?="bob", color?="magenta")
 +nocsrf
-POST       /favcolpost                   controllers.Application.postColor
+# POST       /favcolpost                   controllers.Application.postColor
 
 # Prefix must match `play.assets.urlPrefix`
 GET        /assets/*file                 controllers.Assets.at(file)
 GET        /versionedAssets/*file        controllers.Assets.versioned(path="/public", file: Asset)
 GET        /test213                      controllers.Application.test213
+
+GET        /react                        controllers.Application.load
