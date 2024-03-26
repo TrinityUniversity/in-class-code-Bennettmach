@@ -4,7 +4,8 @@ import javax.inject._
 
 import shared.SharedMessages
 import play.api.mvc._
-import models._
+import models.NBATeams
+//import models.Users
 
 @Singleton
 class Application @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
@@ -31,20 +32,15 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
       Ok(views.html.favCol(name,color))
   }
 
-  // def postColor = Action { request =>
-  //   val postvals = request.body.asFormUrlEncoded
-  //   for (usr <- Student.iter) {
-  //     print(usr.toString())
-  //   }
-  //   postvals.map { args => 
-  //     val name = args("name").head
-  //     val color = args("color").head
-  //     Ok(views.html.favCol(name, color))
-  //   }.getOrElse(Ok("something went wrong"))
-  // }
-
-  def counter = Action { request =>
-    Ok(views.html.counter())
+  def postColor = Action { request =>
+    val postvals = request.body.asFormUrlEncoded
+    print(Users.iter)
+    postvals.map { args => 
+      val name = args("name").head
+      val color = args("color").head
+      Ok(views.html.favCol(name, color))
+    }.getOrElse(Ok("something went wrong"))
   }
 
 }
+
