@@ -32,14 +32,18 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
       Ok(views.html.favCol(name,color))
   }
 
-  def postColor = Action { request =>
-    val postvals = request.body.asFormUrlEncoded
-    print(Users.iter)
-    postvals.map { args => 
-      val name = args("name").head
-      val color = args("color").head
-      Ok(views.html.favCol(name, color))
-    }.getOrElse(Ok("something went wrong"))
+  // def postColor = Action { request =>
+  //   val postvals = request.body.asFormUrlEncoded
+  //   print(Users.iter)
+  //   postvals.map { args => 
+  //     val name = args("name").head
+  //     val color = args("color").head
+  //     Ok(views.html.favCol(name, color))
+  //   }.getOrElse(Ok("something went wrong"))
+  // }
+
+  def load = Action { implicit request =>
+    Ok(views.html.react())  
   }
 
 }
